@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "domapic-service": "1.0.0-alpha.3",
+    "request": "2.88.0",
     "request-promise": "4.2.2"
   },
   "devDependencies": {
