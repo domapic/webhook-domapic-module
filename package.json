@@ -1,0 +1,46 @@
+{
+  "name": "webhook-domapic-module",
+  "version": "1.0.0",
+  "description": "Domapic module for triggering a webhook",
+  "main": "server.js",
+  "bin": {
+    "relay": "./bin/domapic-webhook"
+  },
+  "scripts": {
+    "test": "narval",
+    "coveralls": "cat ./.coverage/lcov.info | coveralls",
+    "relay": "./bin/domapic-webhook"
+  },
+  "dependencies": {
+    "domapic-service": "1.0.0-alpha.3",
+    "request-promise": "4.2.2"
+  },
+  "devDependencies": {
+    "coveralls": "3.0.2",
+    "narval": "2.2.1",
+    "mockery": "2.1.0"
+  },
+  "files": [
+    "/lib",
+    "/bin",
+    "server.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierbrea/webhook-domapic-module.git"
+  },
+  "keywords": [
+    "domapic",
+    "webhook",
+    "request",
+    "iot",
+    "api",
+    "domotic"
+  ],
+  "author": "Javier Brea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javierbrea/webhook-domapic-module/issues"
+  },
+  "homepage": "https://github.com/javierbrea/webhook-domapic-module#readme"
+}
