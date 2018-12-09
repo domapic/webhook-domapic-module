@@ -1352,9 +1352,9 @@
       }
     },
     "domapic-base": {
-      "version": "1.0.0-beta.17",
-      "resolved": "https://registry.npmjs.org/domapic-base/-/domapic-base-1.0.0-beta.17.tgz",
-      "integrity": "sha512-d3wFDdOc3bhI8iFeBTSGeNS62DbVFkQ6xgfaqYtUdHW0Qw2Yw2ENcVuokj5QKGBP9S0duu7tDHQpwCTfw+BowA==",
+      "version": "1.0.0-beta.18",
+      "resolved": "https://registry.npmjs.org/domapic-base/-/domapic-base-1.0.0-beta.18.tgz",
+      "integrity": "sha512-1YeH1PXQFTCPdViVNT9R7SZs59JuPGS8WMolez6Kn3oPV+06NNfb4GSeAoM2Z8O6689biruRoi2khPhnC1VTwg==",
       "requires": {
         "bluebird": "3.5.2",
         "body-parser": "1.18.3",
@@ -1394,13 +1394,13 @@
       }
     },
     "domapic-service": {
-      "version": "1.0.0-alpha.3",
-      "resolved": "https://registry.npmjs.org/domapic-service/-/domapic-service-1.0.0-alpha.3.tgz",
-      "integrity": "sha512-3Lisnrkj4VfBGypLuFk3GWScXmiuiAQBAiCVi5TBwREM9g7xx2Rypon5xo7Q6g3T9Qu3ziGvlHsiujwN66G6Ig==",
+      "version": "1.0.0-alpha.4",
+      "resolved": "https://registry.npmjs.org/domapic-service/-/domapic-service-1.0.0-alpha.4.tgz",
+      "integrity": "sha512-AwLT1pKIwvkzWuE2KFsL12cvJddEWHBTf0WlzC9cAcTxqfYLWxiCuHinrvvfCOtPe9JYcvn7/8FsEKzLfcQdnQ==",
       "requires": {
         "bluebird": "3.5.1",
         "deep-equal": "1.0.1",
-        "domapic-base": "1.0.0-beta.17",
+        "domapic-base": "1.0.0-beta.18",
         "ip": "1.1.5",
         "is-promise": "2.1.0",
         "jsonschema": "1.2.4",
@@ -4274,6 +4274,15 @@
           "integrity": "sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=",
           "dev": true
         },
+        "boom": {
+          "version": "7.2.0",
+          "resolved": "http://registry.npmjs.org/boom/-/boom-7.2.0.tgz",
+          "integrity": "sha1-K/8kpVVldn/ehp7ICDF+sQxI6WY=",
+          "dev": true,
+          "requires": {
+            "hoek": "5.x.x"
+          }
+        },
         "colors": {
           "version": "1.3.1",
           "resolved": "https://registry.npmjs.org/colors/-/colors-1.3.1.tgz",
@@ -4297,6 +4306,12 @@
             "source-map": "^0.4.4",
             "uglify-js": "^2.6"
           }
+        },
+        "hoek": {
+          "version": "5.0.4",
+          "resolved": "https://registry.npmjs.org/hoek/-/hoek-5.0.4.tgz",
+          "integrity": "sha512-Alr4ZQgoMlnere5FZJsIyfIjORBqZll5POhDsF4q64dPuJR6rNxXdDxtHSQq8OXRurhmx+PWYEE8bXRROY8h0w==",
+          "dev": true
         },
         "strip-ansi": {
           "version": "4.0.0",

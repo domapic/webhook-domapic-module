@@ -24,14 +24,20 @@ domapic.createModule({
       },
       action: {
         description: 'Trigger the webhook',
-        handler: () => requestPromise({
-          uri: config[WEBHOOK_URI],
-          method: config[WEBHOOK_METHOD]
-        }).then(() => {
-          dmpcModule.events.emit(ABILITY)
-          return Promise.resolve()
-        })
-        // TODO, catch the error and return a badGateway
+        handler: async () => {
+          await dmpcModule.tracer.info(`Sending ${config[WEBHOOK_METHOD]} request to ${config[WEBHOOK_URI]}`)
+          return requestPromise({
+            uri: config[WEBHOOK_URI],
+            method: config[WEBHOOK_METHOD]
+          }).then(() => {
+            dmpcModule.events.emit(ABILITY)
+            return Promise.resolve()
+          }).catch(async error => {
+            const errorMessage = `Error ${error.response.statusCode} received from ${config[WEBHOOK_METHOD]} to ${config[WEBHOOK_URI]}`
+            await dmpcModule.tracer.error(errorMessage)
+            return Promise.reject(new dmpcModule.errors.BadGateway(errorMessage))
+          })
+        }
       }
     }
   })

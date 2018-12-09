@@ -23,6 +23,13 @@ const Mock = function () {
     },
     config: {
       get: sandbox.stub().resolves()
+    },
+    tracer: {
+      info: sandbox.stub().resolves(),
+      error: sandbox.stub().resolves()
+    },
+    errors: {
+      BadGateway: sandbox.stub()
     }
   }
 

@@ -52,14 +52,49 @@ test.describe('server', () => {
       test.expect(requestPromise.stub.getCall(0).args[0].method).to.equal(fooConfig.method)
     })
 
-    test.it('should emit a webhook event', async () => {
-      await abilities.webhook.action.handler()
-      test.expect(domapic.stubs.module.events.emit).to.have.been.calledWith('webhook')
+    test.describe('when request is success', () => {
+      test.it('should emit a webhook event', async () => {
+        await abilities.webhook.action.handler()
+        test.expect(domapic.stubs.module.events.emit).to.have.been.calledWith('webhook')
+      })
+
+      test.it('should return no data', async () => {
+        const result = await abilities.webhook.action.handler()
+        test.expect(result).to.be.undefined()
+      })
     })
 
-    test.it('should return no data', async () => {
-      const result = await abilities.webhook.action.handler()
-      test.expect(result).to.be.undefined()
+    test.describe('when request fails', () => {
+      let error
+      let controlledError
+
+      test.before(() => {
+        error = new Error('foo error')
+        error.response = {
+          statusCode: 450
+        }
+        controlledError = new Error()
+        requestPromise.stub.rejects(error)
+        domapic.stubs.module.errors.BadGateway.returns(controlledError)
+      })
+
+      test.it('should not emit a webhook event', async () => {
+        return abilities.webhook.action.handler()
+          .then(() => {
+            return test.assert.fail()
+          }, () => {
+            return test.expect(domapic.stubs.module.events.emit.callCount).to.equal(3)
+          })
+      })
+
+      test.it('should reject the promise with a domapic BadGateway error', async () => {
+        return abilities.webhook.action.handler()
+          .then(() => {
+            return test.assert.fail()
+          }, err => {
+            return test.expect(err).to.equal(controlledError)
+          })
+      })
     })
   })
 })

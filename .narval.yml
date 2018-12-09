@@ -83,19 +83,28 @@ suites:
         <<: *functional-test
         specs:
           - test/functional/specs/webhook.specs.js
+          - test/functional/specs/config.specs.js
       coverage: *disable-coverage
-    - name: config
-      describe: should init the module with provided configuration
+    - name: webhook-fail
+      describe: should return a bad response when webhook fails
       before: *clean
       services:
         - name: module
           abort-on-error: true
-          local: *local-service
-          docker: *docker-service
+          local:
+            <<: *local-service
+            env:
+              <<: *local-service-env
+              service_extra_options: --url=http://google.com --method=POST
+          docker:
+            <<: *docker-service
+            env:
+              <<: *docker-service-env
+              service_extra_options: --url=http://google.com --method=POST
       test:
         <<: *functional-test
         specs:
-          - test/functional/specs/config.specs.js
+          - test/functional/specs/webhook-fail.specs.js
       coverage: *disable-coverage
     - name: api-cli
       describe: should launch the webhook when started using cli
@@ -109,17 +118,5 @@ suites:
         <<: *functional-test
         specs:
           - test/functional/specs/webhook.specs.js
-      coverage: *disable-coverage
-    - name: config-cli
-      describe: should init the module with provided configuration when started using cli
-      before: *clean
-      services:
-        - name: module
-          abort-on-error: true
-          local: *local-service-cli
-          docker: *docker-service-cli
-      test:
-        <<: *functional-test
-        specs:
           - test/functional/specs/config.specs.js
       coverage: *disable-coverage
