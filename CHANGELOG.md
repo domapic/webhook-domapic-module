@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 ### Removed
 
+## [1.0.0] - 2018-12-11
+### Added
+- Documentation
+
+### Fixed
+- Fixed binary name.
+
 ## [1.0.0-alpha.1] - 2018-12-09
 ### Added
 - First pre-release
