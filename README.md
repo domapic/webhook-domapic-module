@@ -55,7 +55,7 @@ Now, the module can be controlled through the Controller interface, or installed
 
 ## Stand alone usage
 
-Domapic modules are intended to be used through Domapic Controller, but can be used as stand-alone services as well. Follow next instructions to use the built-in api by your own:
+Domapic modules are intended to be used through Domapic Controller, but can be used as an stand-alone service as well. Follow next instructions to use the built-in api by your own:
 
 ### Rest API
 

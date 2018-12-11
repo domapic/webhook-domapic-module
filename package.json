@@ -4,7 +4,7 @@
   "description": "Domapic module for triggering a webhook",
   "main": "server.js",
   "bin": {
-    "relay": "./bin/domapic-webhook"
+    "domapic-webhook": "./bin/domapic-webhook"
   },
   "scripts": {
     "test": "narval",
