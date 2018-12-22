@@ -1,0 +1,24 @@
+[
+  {
+    "pluginPackageName": "homebridge-domapic-plugin",
+    "config": {
+      "accessories": [
+        {
+          "accessory": "Switch",
+          "name": "Webhook",
+          "characteristics": [
+            {
+              "characteristic": "On",
+              "get": {
+                "fixture": false
+              },
+              "set": {
+                "ability": "webhook"
+              } 
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

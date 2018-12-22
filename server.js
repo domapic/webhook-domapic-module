@@ -7,6 +7,7 @@ const requestPromise = require('request-promise')
 
 const options = require('./lib/options')
 const { WEBHOOK_URI, WEBHOOK_METHOD } = require('./lib/statics')
+const pluginConfigs = require('./lib/plugins')
 
 const ABILITY = 'webhook'
 
@@ -41,6 +42,8 @@ domapic.createModule({
       }
     }
   })
+
+  await dmpcModule.addPluginConfig(pluginConfigs)
 
   return dmpcModule.start()
 })

@@ -30,7 +30,8 @@ const Mock = function () {
     },
     errors: {
       BadGateway: sandbox.stub()
-    }
+    },
+    addPluginConfig: sandbox.stub().resolves()
   }
 
   const stubs = {
